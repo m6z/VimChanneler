@@ -54,4 +54,24 @@ Vim commands from python can either be one-way (from python to vim) or two-way (
 
 # Using the standard command line arguments
 
+The example in the [Quick Start](#Quick Start) section is in the file [vim_channeler_simplest_test.py](vim_channeler_simplest_test.py).  It can be run from the command line like:
+```sh
+$ ./vim_channeler_simplest_test.py
+```
+
+A slightly longer example is provided in [vim_channeler_example.py](vim_channeler_example.py).  This example runs multiple scenarios, including the use of the python **assert** call.  In addition, it utilizes the **vim_channeler_argparser()** which is part of [vim_channeler.py](vim_channeler.py).  This is a wrapper around the python [argparse.ArgumentParser](TODO) to support a standard set of command line arguments to python scripts utilizing a **VimChanneler**.
+
+```sh
+$ ./vim_channeler_example.py
+```
+
+By default this will run the console **vim** executable as a subprocess and then quit the vim process and the end resulting in the subprocess ending cleanly.
+
+However the gui version of vim such as **gvim** or **mvim** (MacOS) can used instead by supplying the **-g** command line parameter to the script.  This will start the gui version of vim and leave it running so is easy to see the result of the VimChanneler python scenarios by visually inspecting the gvim window.  In other words it will not **quit** the vim subprocess.
+```sh
+$ ./vim_channeler_example.py -g
+```
+
+TODO other args: -q, etc
+
 # Further examples
