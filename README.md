@@ -54,12 +54,12 @@ Vim commands from python can either be one-way (from python to vim) or two-way (
 
 # Using the standard command line arguments
 
-The example in the [Quick Start](#Quick Start) section is in the file [vim_channeler_simplest_test.py](vim_channeler_simplest_test.py).  It can be run from the command line like:
+The example in the [Quick Start](#quick-start) section is in the file [vim_channeler_simplest_test.py](vim_channeler_simplest_test.py).  It can be run from the command line like:
 ```sh
 $ ./vim_channeler_simplest_test.py
 ```
 
-A slightly longer example is provided in [vim_channeler_example.py](vim_channeler_example.py).  This example runs multiple scenarios, including the use of the python **assert** call.  In addition, it utilizes the **vim_channeler_argparser()** which is part of [vim_channeler.py](vim_channeler.py).  This is a wrapper around the python [argparse.ArgumentParser](TODO) to support a standard set of command line arguments to python scripts utilizing a **VimChanneler**.
+A slightly longer example is provided in [vim_channeler_example.py](vim_channeler_example.py).  This example runs multiple scenarios, including the use of the python **assert** call.  In addition, it utilizes the **vim_channeler_argparser()** which is part of [vim_channeler.py](vim_channeler.py).  This is a wrapper around the python [argparse.ArgumentParser](https://docs.python.org/3/library/argparse.html#argumentparser-objects) to support a standard set of command line arguments to python scripts utilizing a **VimChanneler**.
 
 ```sh
 $ ./vim_channeler_example.py
