@@ -67,11 +67,18 @@ $ ./vim_channeler_example.py
 
 By default this will run the console **vim** executable as a subprocess and then quit the vim process and the end resulting in the subprocess ending cleanly.
 
-However the gui version of vim such as **gvim** or **mvim** (MacOS) can used instead by supplying the **-g** command line parameter to the script.  This will start the gui version of vim and leave it running so is easy to see the result of the VimChanneler python scenarios by visually inspecting the gvim window.  In other words it will not **quit** the vim subprocess.
+However the gui version of vim such as **gvim** or **mvim** (MacOS) can used instead by supplying the **-g** or **--use-gui-vim** command line parameter to the script.  This will start the gui version of vim and leave it running so is easy to see the result of the VimChanneler python scenarios by visually inspecting the gvim window.  In other words it will not **quit** the vim subprocess.
 ```sh
 $ ./vim_channeler_example.py -g
 ```
 
-TODO other args: -q, etc
+To use the gui version of vim and then automatically quit at the end use the **-q** or **--quit-vim** command line parameter:
+```sh
+$ ./vim_channeler_example.py -g -q
+```
+
+TODO other args: **-i** or **--initialize-vim**
+
+TODO see ```vim_channeler_argparser()``` in [vim_channeler.py](vim_channeler.py) for full list of standard command line parameters.
 
 # Further examples
