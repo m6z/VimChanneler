@@ -77,8 +77,13 @@ To use the gui version of vim and then automatically quit at the end use the **-
 $ ./vim_channeler_example.py -g -q
 ```
 
-TODO other args: **-i** or **--initialize-vim**
+By default VimChanneler will start vim in [clean mode](https://vimhelp.org/starting.txt.html#--clean) in order to focus exclusively on the python interaction.  However to start vim with normal startup where all user customizations are include use **-i** or **--initialize-vim**.
+```sh
+$ ./vim_channeler_example.py -i
+```
 
-TODO see ```vim_channeler_argparser()``` in [vim_channeler.py](vim_channeler.py) for full list of standard command line parameters.
+See the python function ```vim_channeler_argparser()``` in [vim_channeler.py](vim_channeler.py) for full list of standard command line parameters that are integrated with VimChanneler.
 
-# Further examples
+# Python unittest module
+
+TODO explain how args are shared between both VimChanneler and python [unittest](https://docs.python.org/3/library/unittest.html) module.
