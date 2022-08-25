@@ -82,8 +82,52 @@ By default VimChanneler will start vim in [clean mode](https://vimhelp.org/start
 $ ./vim_channeler_example.py -i
 ```
 
-See the python function ```vim_channeler_argparser()``` in [vim_channeler.py](vim_channeler.py) for full list of standard command line parameters that are integrated with VimChanneler.
+Help is supported:
+```
+$ ./vim_channeler_example.py -h
+usage: vim_channeler_example.py [-h] [-g] [-i] [-q] [-e VIM_EXECUTABLE] [-l VIM_CHANNEL_LOG] [--host HOST] [--port PORT] [-v]
+
+Run vim channeler simple tests
+
+options:
+  -h, --help            show this help message and exit
+  -g, --use-gui-vim     Test gui version of vim such as gvim or mvim
+  -i, --initialize-vim  Start vim with default initialization (not --clean)
+  -q, --quit-vim        Quit vim when scenario finished
+  -e VIM_EXECUTABLE, --vim-executable VIM_EXECUTABLE
+                        Vim executable to use instead of vim, gvim or mvim
+  -l VIM_CHANNEL_LOG, --vim-channel-log VIM_CHANNEL_LOG
+                        Vim ch_logfile to use, example: -l=/tmp/vimch.log
+  --host HOST           Host to use for vim channel
+  --port PORT           Port to use for vim channel
+  -v, --verbose         verbose debug logging
+```
+
+See the python function ```vim_channeler_argparser()``` in [vim_channeler.py](vim_channeler.py) for reference.
 
 # Python unittest module
 
-TODO explain how args are shared between both VimChanneler and python [unittest](https://docs.python.org/3/library/unittest.html) module.
+A python test fixture can be created by inheriting from VimChannelerFixture which is a descendant of the python [unittest.IsolatedAsyncioTestCase](https://docs.python.org/3/library/unittest.html#unittest.IsolatedAsyncioTestCase).
+
+See [vim_channeler_unittest.py](vim_channeler_unittest.py) for an example.
+
+```
+class VimChannelerSimpleTest(VimChannelerFixture):
+
+    async def test_edit_file1(self):
+        vimch = await self.createVimChanneler()   # create a VimChanneler for use by this test
+        await vimch.ex('edit /tmp/a.tmp')         # open a file in the vim session
+        f1 = await vimch.ex_redir('f')            # execute the vim command 'f' (file) which reports the current open file
+        print('f1={}'.format(f1))                 # print the result on the console
+        self.assertTrue('a.tmp' in f1)            # assert via the python unittest module capabilities
+        await vimch.ex('redraw')                  # redraw vim (relevant only for gui mode such as gvim, mvim)
+```
+
+Each test case with in the test suite defined within a subclass of VimChannelerFixture is run against a separate session of vim.
+
+When running from the command line both the VimChanneler and unittest arguments can be specified:
+```
+$ ./vim_channeler_unittest.py -k test_edit_file1 --use-gui-vim
+```
+
+In the example above the **-k** option is specific to the unittest module and indicates that a specific test in the test suite should be run.  The **--use-gui-vim** option is recognized by the VimChanneler and indicates that the gui version of vim should be used for the test.
