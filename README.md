@@ -107,11 +107,9 @@ See the python function ```vim_channeler_argparser()``` in [vim_channeler.py](vi
 
 # Python unittest module
 
-A python test fixture can be created by inheriting from VimChannelerFixture which is a descendant of the python [unittest.IsolatedAsyncioTestCase](https://docs.python.org/3/library/unittest.html#unittest.IsolatedAsyncioTestCase).
+A python test fixture can be created by inheriting from VimChannelerFixture which itself is derived from the python [unittest.IsolatedAsyncioTestCase](https://docs.python.org/3/library/unittest.html#unittest.IsolatedAsyncioTestCase).  See [vim_channeler_unittest.py](vim_channeler_unittest.py) an example containing the following.
 
-See [vim_channeler_unittest.py](vim_channeler_unittest.py) for an example.
-
-```
+```python
 class VimChannelerSimpleTest(VimChannelerFixture):
 
     async def test_edit_file1(self):
