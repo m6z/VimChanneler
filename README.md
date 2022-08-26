@@ -4,7 +4,7 @@ Interact with the Vim editor channels via Python scripting.
 
 # What is it
 
-VimChanneler simple way to run and interact with a vim session from within a python script.
+VimChanneler is a simple way to run and interact with a vim session from within a python script.
 It allows for the remote control of vim via python function calls.
 As such it provides the capability to test vim commands and vimscript functionality via python testing capabilities.  Such as the python assert statement or the python unittest module.
 This uses integrates the Vim [channel](https://vimhelp.org/channel.txt.html) feature with the Python [asyncio](https://docs.python.org/3/library/asyncio.html) module capabilities.
@@ -37,9 +37,9 @@ vimch.process(scenario)
 
 # Installation
 
-All of the functionality is incorporated into a single python file: vim_channeler.py.  There are no dependencies on any vim plugins such as .vim files.  All that is required is a version of vim that supports channels (vim version approximately >= 7.4) and python3 that supports later asyncio (python version approximately >= 3.8).
+All of the functionality is incorporated into a single python file: [vim_channeler.py].  There are no dependencies on any vim plugins such as .vim files.  All that is required is a version of vim that supports channels (vim version approximately >= 7.4) and python3 that supports later asyncio (python version approximately >= 3.8).
 
-Download either the single file vim_channeler.py or clone the repository. The in python can simply ```import vim_channeler```.
+Download either the single file [vim_channeler.py] or clone the repository. Then in python can simply ```import vim_channeler```.
 
 # VimChanneler capabilities
 
