@@ -37,9 +37,9 @@ vimch.process(scenario)
 
 # Installation
 
-All of the functionality is incorporated into a single python file: [vim_channeler.py].  There are no dependencies on any vim plugins such as .vim files.  All that is required is a version of vim that supports channels (vim version approximately >= 7.4) and python3 that supports later asyncio (python version approximately >= 3.8).
+All of the functionality is incorporated into a single python file: [vim_channeler.py](vim_channeler.py).  There are no dependencies on any vim plugins such as .vim files.  All that is required is a version of vim that supports channels (vim version approximately >= 7.4) and python3 that supports later asyncio (python version approximately >= 3.8).
 
-Download either the single file [vim_channeler.py] or clone the repository. Then in python can simply ```import vim_channeler```.
+Download either the single file [vim_channeler.py](vim_channeler.py) or clone the repository. Then in python can simply ```import vim_channeler```.
 
 # VimChanneler capabilities
 
