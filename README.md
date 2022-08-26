@@ -1,10 +1,12 @@
 # VimChanneler
-Interact with Vim channels via Python scripting
+
+Interact with the Vim editor channels via Python scripting.
 
 # What is it
 
 VimChanneler simple way to run and interact with a vim session from within a python script.
-It provides the capability to test vim commands and vimscript functionality via python testing capabilities.  Such as the python assert statement or the python unittest module.
+It allows for the remote control of vim via python function calls.
+As such it provides the capability to test vim commands and vimscript functionality via python testing capabilities.  Such as the python assert statement or the python unittest module.
 This uses integrates the Vim [channel](https://vimhelp.org/channel.txt.html) feature with the Python [asyncio](https://docs.python.org/3/library/asyncio.html) module capabilities.
 
 # Quick Start
