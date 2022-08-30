@@ -7,7 +7,6 @@ import sys, json, asyncio, logging, pathlib, argparse, unittest, datetime
 
 def vim_channeler_argparser():
     # Construct a command line argument parser for VimChanneler parameters
-    # TODO add help, and examples
     parser = argparse.ArgumentParser(description='Run vim channeler simple tests')
     parser.add_argument('-g', '--use-gui-vim', action='store_true', default=False, help='Test gui version of vim such as gvim or mvim')
     # parser.add_argument('-1', '--single-instance', action='store_true', default=False, help='Only single instance of vim process')
@@ -17,7 +16,7 @@ def vim_channeler_argparser():
     parser.add_argument('-l', '--vim-channel-log', help='Vim ch_logfile to use, example: -l=/tmp/vimch.log')
     parser.add_argument('--host', default='localhost', help='Host to use for vim channel')
     parser.add_argument('--port', default=8765, type=int, help='Port to use for vim channel')
-    parser.add_argument('-v', '--verbose', action='store_true', default=False, help='verbose debug logging')
+    parser.add_argument('--verbose', action='store_true', default=False, help='verbose debug logging')
     return parser
 
 #----------------------------------------------------------------------
@@ -188,8 +187,7 @@ class VimChanneler:
             decoded = [-1, '']
         if decoded[0] != request_number:
             print('ERROR message returned out of sequence, received={} expecting={}'.format(decoded[0], request_number))
-        # return decoded[1:]
-        return decoded[1]
+        return decoded[1].lstrip()  # for some reason there is a newline at the front
 
     async def ex(self, command):
         # Send a simple :ex command to vim
