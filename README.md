@@ -84,7 +84,7 @@ By default VimChanneler will start vim in [clean mode](https://vimhelp.org/start
 $ ./vim_channeler_example.py -i
 ```
 
-There is an extensive logging facility in the vim channel feature via [ch_logfile()](https://vimhelp.org/channel.txt.html#ch_logfile).  To trigger this logging from python use the **-l** or **--vim-channel-log** command line parameter.  The following example will tell vim to log channel interactions to a file, which can be useful for inspection and debugging.
+There is an extensive logging facility in the vim channel feature via [ch_logfile()](https://vimhelp.org/channel.txt.html#ch_logfile%28%29).  To trigger this logging from python use the **-l** or **--vim-channel-log** command line parameter.  The following example will tell vim to log channel interactions to a file, which can be useful for inspection and debugging.
 ```sh
 $ ./vim_channeler_example.py -l /tmp/vimch.log
 ```
