@@ -187,7 +187,10 @@ class VimChanneler:
             decoded = [-1, '']
         if decoded[0] != request_number:
             print('ERROR message returned out of sequence, received={} expecting={}'.format(decoded[0], request_number))
-        return decoded[1].lstrip()  # for some reason there is a newline at the front
+        result = decoded[1]
+        if type(result) is type(''):
+            result = result.lstrip() # for some reason there can be a newline at the front
+        return result
 
     async def ex(self, command):
         # Send a simple :ex command to vim
