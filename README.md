@@ -136,3 +136,14 @@ $ ./vim_channeler_unittest.py -k test_edit_file1 --use-gui-vim
 ```
 
 In the example above the **-k** option is specific to the unittest module and indicates that a specific test in the test suite should be run.  The **--use-gui-vim** option is recognized by the VimChanneler and indicates that the gui version of vim should be used for the test.
+
+# Debugging tips
+
+If there is some kind of unexpected result use the vim channel log.  For example use something like **-l /tmp/vimch.log** or **--vim-channel-log /tmp/vimch.log** when using the **vim_channeler_argparser()**
+
+For example requesting an invalid vim expression like **await vimch.expr('a + 1')** can result in the following messages in vimch.log:
+```
+  0.024377 on 0: Evaluating expression 'a + 1'
+  0.024403 : ERROR silent: E121: Undefined variable: a
+  0.024416 SEND on 0(sock): '[2,"ERROR"]
+```
