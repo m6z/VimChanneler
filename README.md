@@ -139,9 +139,9 @@ In the example above the **-k** option is specific to the unittest module and in
 
 # Debugging tips
 
-If there is some kind of unexpected result use the vim channel log.  For example use something like **-l /tmp/vimch.log** or **--vim-channel-log /tmp/vimch.log** when using the **vim_channeler_argparser()**
+If there is some kind of unexpected result use the vim channel log.  When using the **vim_channeler_argparser()** specify **-l vimch.log** or **--vim-channel-log vimch.log** on the command line to the python script.
 
-For example requesting an invalid vim expression like **await vimch.expr('a + 1')** can result in the following messages in vimch.log:
+For example requesting an invalid vim expression like **await vimch.expr('a + 1')** can result in the vim process writing the following messages to vimch.log:
 ```
   0.024377 on 0: Evaluating expression 'a + 1'
   0.024403 : ERROR silent: E121: Undefined variable: a
