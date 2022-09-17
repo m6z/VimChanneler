@@ -2,14 +2,14 @@
 
 Interact with the Vim editor channels via Python scripting.
 
-# What is it
+## What is it
 
 VimChanneler is a simple way to run and interact with a vim session from within a python script.
 It allows for the remote control of vim via python function calls.
 As such it provides the capability to test vim commands and vimscript functionality via python testing capabilities.  Such as the python assert statement or the python unittest module.
 This uses integrates the Vim [channel](https://vimhelp.org/channel.txt.html) feature with the Python [asyncio](https://docs.python.org/3/library/asyncio.html) module capabilities.
 
-# Quick Start
+## Quick Start
 
 Here is an example which does the following.
 1. Starts vim as a subprocess and automatically establishes a channel between vim and a python asyncio server.
@@ -35,13 +35,13 @@ vimch = VimChanneler()
 vimch.process(scenario)
 ```
 
-# Installation
+## Installation
 
 All of the functionality is incorporated into a single python file: [vim_channeler.py](vim_channeler.py).  There are no dependencies on any vim plugins such as .vim files.  All that is required is a version of vim that supports channels (vim version approximately >= 7.4) and python3 that supports later asyncio (python version approximately >= 3.8).
 
 Download either the single file [vim_channeler.py](vim_channeler.py) or clone the repository. Then in python can simply ```import vim_channeler```.
 
-# VimChanneler capabilities
+## VimChanneler capabilities
 
 Vim commands from python can either be one-way (from python to vim) or two-way (from python to vim and then python waits for a response from vim).
 
@@ -54,7 +54,7 @@ Vim commands from python can either be one-way (from python to vim) or two-way (
 | get_buffer_lines()   | Retrieve the text of the current vim buffer as a list of lines in python             |
 | quit()               | Send a "quitall!" command to vim to completely end the session                       |
 
-# Using the standard command line arguments
+## Using the standard command line arguments
 
 The example in the [Quick Start](#quick-start) section is in the file [vim_channeler_simplest_test.py](vim_channeler_simplest_test.py).  It can be run from the command line like:
 ```sh
@@ -112,7 +112,7 @@ options:
 
 See the python function ```vim_channeler_argparser()``` in [vim_channeler.py](vim_channeler.py) for reference.
 
-# Python unittest module
+## Python unittest module
 
 A python test fixture can be created by inheriting from VimChannelerFixture which itself is derived from the python [unittest.IsolatedAsyncioTestCase](https://docs.python.org/3/library/unittest.html#unittest.IsolatedAsyncioTestCase).  See [vim_channeler_unittest.py](vim_channeler_unittest.py) an example containing the following.
 
@@ -137,7 +137,7 @@ $ ./vim_channeler_unittest.py -k test_edit_file1 --use-gui-vim
 
 In the example above the **-k** option is specific to the unittest module and indicates that a specific test in the test suite should be run.  The **--use-gui-vim** option is recognized by the VimChanneler and indicates that the gui version of vim should be used for the test.
 
-# Debugging tips
+## Debugging tips
 
 If there is some kind of unexpected result use the vim channel log.  When using the **vim_channeler_argparser()** specify **-l vimch.log** or **--vim-channel-log vimch.log** on the command line to the python script.
 
